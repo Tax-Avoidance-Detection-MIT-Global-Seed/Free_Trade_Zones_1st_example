@@ -73,3 +73,21 @@ plantillas_contables_1 = {
         },
     },
 }
+
+
+dict_precios_2 = {
+    # Combinaciones de "MKT" como vendedor
+    ("MKT", "ZF", "materia_prima"): 1,
+    ("MKT", "NCT", "materia_prima"): 1,
+    # Combinaciones de "MKT" como comprador
+    ("NCT", "MKT", "bien_final"): 7,
+    ("ZF", "MKT", "bien_final"): 7,
+    # Combinaciones de "NCT" como vendedor
+    ("NCT", "ZF", "materia_prima"): 3,
+    ("NCT", "ZF", "bien_intermedio"): 5,
+    ("NCT", "ZF", "bien_final"): 6,
+    # Combinaciones de "ZF" como vendedor
+    ("ZF", "NCT", "materia_prima"): 2,
+    ("ZF", "NCT", "bien_intermedio"): 4,
+    ("ZF", "NCT", "bien_final"): 6,
+}

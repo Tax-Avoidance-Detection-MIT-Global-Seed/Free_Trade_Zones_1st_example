@@ -1,0 +1,2 @@
+<strategy> ::= [<choice>, <choice>, <choice>]
+<choice> ::= "NCT" | "FTZ"

@@ -1,11 +1,14 @@
 from pathlib import Path
+import sys
 import os
-from typing import List, Tuple
 
-os.chdir(str((Path(__file__).resolve()).parent.parent))
+parent_dir  = str((Path(__file__).resolve()).parent.parent)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
 import main
 
+os.chdir(parent_dir)
 
 # Set to use the configuration file and output directory
 args = [

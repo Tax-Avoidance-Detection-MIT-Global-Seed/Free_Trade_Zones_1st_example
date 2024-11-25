@@ -1,9 +1,14 @@
 from pathlib import Path
+import sys
 import os
 
-os.chdir(str((Path(__file__).resolve()).parent.parent))
+parent_dir  = str((Path(__file__).resolve()).parent.parent)
+if parent_dir not in sys.path:
+    sys.path.append(parent_dir)
 
 import main
+
+os.chdir(parent_dir)
 
 from util.plot_ipd import plot_iterated_prisoners_dilemma, plot_ipd_from_file
 from fitness.game_theory_game import PrisonersDilemma

@@ -14,4 +14,5 @@ args = [
     "-f",
     "tests/configurations/zona_franca/zona_franca_simplecase_2.yml",
 ]
+
 provisional = main.main(args)

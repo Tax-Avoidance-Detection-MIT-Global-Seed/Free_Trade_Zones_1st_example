@@ -12,14 +12,14 @@ from pathlib import Path
 from heuristics.donkey_ge import Individual, DEFAULT_FITNESS, FitnessFunction
 from util import utils
 
-from simple_case_ZF.accounting_templates import plantillas_contables_1, dict_precios_2
+from fitness.simple_case_ZF.accounting_templates import plantillas_contables_1, dict_precios_2
 
-from simple_case_ZF.utils import cargar_plantillas_cuentas
+from fitness.simple_case_ZF.utils import cargar_plantillas_cuentas
 
-import simple_case_ZF.classes as cl
+import fitness.simple_case_ZF.classes as cl
 
 PATH = str((Path(__file__).resolve()).parent)
-excel_file_name = r"/directorio_cuentas.xlsx"
+excel_file_name = r"/simple_case_ZF/directorio_cuentas.xlsx"
 
 plantilla_cuentas = cargar_plantillas_cuentas(PATH + excel_file_name)
 
@@ -93,7 +93,7 @@ class Profit(FitnessFunction):
         self.plantillas_cuentas = plantilla_cuentas
         self.plantillas_asientos_contables = plantillas_contables_1
         self.dict_precios = dict_precios_2
-        self.phenotype_conversion = param["phenotype_conversion"]
+        self.phenotype_conversion = ast.literal_eval(param["phenotype_conversion"])
 
     def __call__(self, fcn_str: str, cache: Dict[str, float]) -> float:
         """Returns the sum of the phenotype (fcn_str)."""

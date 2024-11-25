@@ -25,14 +25,40 @@ planta_ZF = cl.ZF("ZF", plantilla_1, plantillas_contables_1)
 lista_planes = list(itertools.product([0, 1], repeat=3))
 
 
-ejecutor = cl.EjecutorPlan(plan, planta_NCT, planta_ZF, dict_precios_2)
-ejecutor.ejecutar()
+mejor_plan = None
+mejor_utilidad = float("-inf")  # Inicializar con el menor valor posible
 
-u1 = planta_NCT.generar_estado_resultados()
+for plan in lista_planes:
+    planta_NCT.reiniciar_estado_contable()
+    planta_ZF.reiniciar_estado_contable()
+    ejecutor = cl.EjecutorPlan(plan, planta_NCT, planta_ZF, dict_precios_2)
+    ejecutor.ejecutar()
 
-u2 = planta_ZF.generar_estado_resultados()
+    u1 = planta_NCT.generar_estado_resultados()
+    u2 = planta_ZF.generar_estado_resultados()
 
-W = (
-    planta_NCT.calcular_utilidad_operacional()
-    + planta_ZF.calcular_utilidad_operacional()
-)
+    W = (
+        planta_NCT.calcular_utilidad_operacional()
+        + planta_ZF.calcular_utilidad_operacional()
+    )
+
+    # Verificar si este plan tiene la mejor utilidad
+    if W > mejor_utilidad:
+        mejor_utilidad = W
+        mejor_plan = plan
+
+    print("-------------------------------------")
+    print(
+        f"plan:{plan}",
+        planta_NCT.generar_estado_resultados(),
+        planta_ZF.generar_estado_resultados(),
+        f"Utilidad: {W}",
+    )
+    print("-------------------------------------")
+
+# Mostrar el mejor plan al final
+print("\n=====================================")
+print("El mejor plan es:")
+print(f"Plan: {mejor_plan}")
+print(f"Utilidad: {mejor_utilidad}")
+print("=====================================")

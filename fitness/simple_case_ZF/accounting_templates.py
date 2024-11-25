@@ -77,7 +77,7 @@ plantillas_contables_1 = {
 
 dict_precios_2 = {
     # Combinaciones de "MKT" como vendedor
-    ("MKT", "ZF", "materia_prima"): 1,
+    ("MKT", "ZF", "materia_prima"): 20,
     ("MKT", "NCT", "materia_prima"): 1,
     # Combinaciones de "MKT" como comprador
     ("NCT", "MKT", "bien_final"): 7,

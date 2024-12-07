@@ -1,7 +1,7 @@
 population_size: 2
 max_length: 5
 elite_size: 1
-generations: 20
+generations: 50
 tournament_size: 2
 seed: 20
 crossover_probability: 0.8

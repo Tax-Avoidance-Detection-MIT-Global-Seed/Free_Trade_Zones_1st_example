@@ -2,7 +2,7 @@
  "population_size": 2,
  "max_length": 5,
  "elite_size": 1,
- "generations": 20,
+ "generations": 50,
  "tournament_size": 2,
  "seed": 20,
  "crossover_probability": 0.8,
@@ -11,8 +11,8 @@
  "integer_input_element_max": 1000,
  "bnf_grammar": "tests/grammars/zona_franca/zona_franca_simple_first_example.bnf",
  "fitness_function": {
-  "name": "fitness.fitness.SimpleSum",
-  "pagos": "{'NCT': 1, 'FTZ': 2}"
+  "name": "fitness.fitness.Profit",
+  "phenotype_conversion": "{'NCT': 0, 'FTZ': 1}"
  },
  "output_dir": "tmp",
  "coev": false
